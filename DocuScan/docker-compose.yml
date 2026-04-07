@@ -1,0 +1,28 @@
+version: '3.7'
+services:
+  forms:
+    image: "mcr.microsoft.com/azure-cognitive-services/form-recognizer/layout-4.0"
+    environment:
+       eula: accept
+       billing: https://gideondocumentintelligence.cognitiveservices.azure.com
+       apikey: BsxukPSVqD7EkQsHhDgPyCVVJ3JHWw4c3RewnQjhxSSZ9SGlRe7iJQQJ99CAACPV0roXJ3w3AAALACOG7tDl
+       FormRecognizer__ComputerVisionApiKey: BsxukPSVqD7EkQsHhDgPyCVVJ3JHWw4c3RewnQjhxSSZ9SGlRe7iJQQJ99CAACPV0roXJ3w3AAALACOG7tDl
+       FormRecognizer__ComputerVisionEndpointUri: https://gideondocumentintelligence.cognitiveservices.azure.com
+    volumes:
+       - type: bind
+         source: C:\Azure_AI\output
+         target: /output
+       - type: bind
+         source: C:\Azure_AI\input
+         target: /input
+    ports:
+      - "5010:5000"
+
+  ner:
+    image: "mcr.microsoft.com/azure-cognitive-services/textanalytics/ner:latest"
+    environment:
+      eula: accept
+      apikey: 38iBbELbkiBEZxtLPCZr2ukTzyAtD1eE7IPxjUaKHslbLQIF4yKYJQQJ99CBACPV0roXJ3w3AAAaACOGRcJg
+      billing: https://docuscan-sys-ner-demo.cognitiveservices.azure.com/
+    ports:
+      - "5021:5000"

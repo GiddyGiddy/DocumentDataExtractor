@@ -1,0 +1,28 @@
+.screen {
+  /*min-height: 100vh;
+  min-height: 100dvh; /* override for modern cellphones */
+  min-height: calc(100vh - 55px);
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: #f1f5f9;
+}
+
+.card {
+  width: 100%;
+  max-width: 760px;
+  padding: 24px;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+.cardHeader {
+  place-items: center;
+  margin-bottom: 16;
+}
+
+.subtitle {
+  margin-top: 8px;
+  color: #6b7280;
+}

@@ -1,0 +1,104 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "dokumenttyp": { "type": "string" },
+    "sprache": { "type": "string", "pattern": "^[a-z]{2}(-[A-Z]{2})?$" },
+    "titel": { "type": ["string", "null"] },
+    "notar": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "vollständigerName": { "type": ["string", "null"] },
+        "kanzleiOrt": { "type": ["string", "null"] },
+        "kanzleiAdresse": { "type": ["string", "null"] }
+      },
+      "required": ["vollständigerName", "kanzleiOrt", "kanzleiAdresse"]
+    },
+    "grundstück": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "anschrift": { "type": ["string", "null"] },
+        "grundbuch": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "amtsgericht": { "type": ["string", "null"] },
+            "gemarkung": { "type": ["string", "null"] },
+            "blatt": { "type": ["string", "null"] }
+          },
+          "required": ["amtsgericht", "gemarkung", "blatt"]
+        }
+      },
+      "required": ["anschrift", "grundbuch"]
+    },
+    "vollmachtgeber": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "name": { "type": "string" },
+          "geburtsdatum": { "type": ["string", "null"], "format": "date" },
+          "anschrift": { "type": ["string", "null"] },
+          "email": { "type": ["string", "null"], "format": "email" },
+          "telefon": { "type": ["string", "null"] },
+          "bevollmächtigter": { "type": ["string", "null"] }
+        },
+        "required": ["name"]
+      }
+    },
+    "vollmacht": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "umfang": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "imAußenverhältnisUnbeschränkt": { "type": ["boolean", "null"] },
+        "zitatAusDemText": { "type": ["string", "null"] }
+      },
+      "required": ["umfang", "imAußenverhältnisUnbeschränkt", "zitatAusDemText"]
+    },
+    "unterzeichnungsdatum": { "type": ["string", "null"], "format": "date" },
+    "unterschriften": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "name": { "type": "string" },
+          "rolle": { "type": ["string", "null"] },
+          "zeitpunkt": { "type": ["string", "null"], "format": "date-time" }
+        },
+        "required": ["name"]
+      }
+    },
+    "unterzeichnungsort": { "type": ["string", "null"] },
+    "hinweise": { "type": ["string", "null"] },
+    "quelle": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "datei": { "type": "string" }
+      },
+      "required": ["datei"]
+    }
+  },
+  "required": [
+    "dokumenttyp",
+    "sprache",
+    "titel",
+    "notar",
+    "grundstück",
+    "vollmachtgeber",
+    "vollmacht",
+    "unterzeichnungsdatum",
+    "unterschriften",
+    "unterzeichnungsort",
+    "hinweise",
+    "quelle"
+  ]
+}
