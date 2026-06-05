@@ -130,12 +130,6 @@ docker-compose up -d forms
 
 The container will be available at `http://localhost:5010`. The backend connects to this endpoint automatically.
 
-> **Important:** The output and input bind-mount directories (`C:\Azure_AI\output` and `C:\Azure_AI\input`) must exist on the host before starting the container.
-
-```bash
-mkdir C:\Azure_AI\output
-mkdir C:\Azure_AI\input
-```
 
 ---
 
@@ -163,7 +157,7 @@ Download and install the Foundry Local runtime from:
 The backend will automatically:
 1. Start the Foundry Local service (if not already running).
 2. Download `phi-3.5-mini` to the local device on first use.
-3. Create a `Data Extraction Agent` with German-language extraction instructions.
+3. Create a `Data Extraction Agent` extraction instructions.
 4. Stream the response and parse the returned JSON.
 
 No additional configuration is required for the LLM component beyond having Foundry Local installed.
@@ -325,14 +319,7 @@ Accepts a PDF file, runs OCR via the local Document Intelligence container, and 
 
 ```json
 {
-  "Name der Vertragsparteien-beteiligte": "Max Mustermann und Erika Musterfrau",
-  "Name der Notar": "Dr. Manuel Ladiges",
-  "Adresse der Vertragsparteien-beteiligte": "Musterstraße 1, 12345 Musterstadt",
-  "Adresse der Notar": "Notarstraße 2, 54321 Notarstadt",
-  "Kaufdatum": "01.12.2025",
-  "UVZ-Nr": "1465/2025",
-  "Fläche": "150",
-  "Posteingangsdatum": "16.12.2025"
+  
 }
 ```
 
