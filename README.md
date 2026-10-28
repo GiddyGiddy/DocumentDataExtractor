@@ -1,6 +1,6 @@
 # DocuScan — AI-Powered Document Data Extractor
 
-DocuScan is a full-stack application that extracts structured data from German notarial and legal PDF documents. It combines a locally-hosted **Azure Document Intelligence** container for OCR with a **local LLM (Phi-3.5-mini via AI Foundry Local)** for intelligent entity extraction, and presents results through a modern **React** frontend.
+DocuScan is a full-stack application that extracts structured data from legal PDF documents. It combines a locally-hosted **Azure Document Intelligence** container for OCR with a **local LLM (Phi-3.5-mini via AI Foundry Local)** for intelligent entity extraction, and presents results through a modern **React** frontend.
 
 All document processing happens on-premises — no raw document content is sent to external cloud services at runtime.
 
